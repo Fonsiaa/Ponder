@@ -10,10 +10,10 @@
 <body>
     
     <nav>
-        <div class="ham_nav" onclick="toggle">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+        <div class="ham_nav" onclick="toggle()">
+            <div class="Line"></div>
+            <div class="Line"></div>
+            <div class="Line"></div>
         </div>
 
         <div class="title">Ponder</div>
@@ -25,11 +25,24 @@
         </ul>
     </nav>
 
+    <div class="story">
+        <div class="text" id="story-content"></div>
+    </div>
+
+    <div class="scale">
+        <div class="dot scale-up" Id="nav-dot"></div>
+    </div>
+
+    <div class="btn">
+        <div id="prev-button" disabled>&lt;</div>
+        <div id="next-button">&gt;</div>
+    </div>
+
     <footer>
         <p>&copy; 2025 Lithidiazz</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="story.js"></script>
 
 </body>
 </html>
