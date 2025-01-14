@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ponder</title>
     <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/style/story/story.css">
+    <link rel="stylesheet" href="/style/story.css">
 </head>
 <body>
     
@@ -19,23 +19,22 @@
         <div class="title">Ponder</div>
 
         <ul id="menu">
-            <li><a href="#">Story Time</a></li>
+            <li><a href="">Story Time</a></li>
             <li><a href="/component/sign.html">Sign Up</a></li>
             <li><a href="/component/login.html">Login</a></li>
         </ul>
     </nav>
 
     <div class="story">
-        <div class="text" id="story-content"></div>
-    </div>
-
-    <div class="scale">
-        <div class="dot scale-up" Id="nav-dot"></div>
+        <div class="text" id="story-content">
+            <h1 id="title">title</h1>
+            <p class="sub" id="content">Content</p>
+        </div>
     </div>
 
     <div class="btn">
-        <button id="prev-button" disabled>&lt;</button>
-        <button id="next-button">&gt;</button>
+        <button id="prev-button" onclick="prev()">&lt;</button>
+        <button id="next-button" onclick="next()">&gt;</button>
     </div>
 
     <footer>
@@ -47,6 +46,67 @@
     function toggleMenu() {
         const menu = document.getElementById('menu');
         menu.classList.toggle('open');
+    }
+
+
+    // the story part of the website
+    const story = [
+        {
+            title: "Ponder",
+            content: "A Fairytale Story",
+        },
+        {
+            content: "Once upon a time high in the misty sky, a place above the ground, is three friends: Wind, Rain and Cloud. They spent their days drifting together, playing games, and the watching the world the below them. Full of beautifully crafted houses, buildings and things. Where people live and use for a purpose. To be sheltered and to be protect.",
+        },
+        {
+            content: 'But something felt... off. They did not know why they existed or what they were meant to do. One day, Wind sighed and asked, "Why do you think we exist? What is our purpose?" Rain, the jolliest one out of the three friends, frowned. Replied, "I did not think of it, I do not know. What I do know, is I just fall, but other then that, I do not know why."Cloud puffed up, confused. “I float, but what’s the point?” ',
+        },
+        {
+            title: "Ponder",
+            content: "A Fairytale Story",
+        },
+        {
+            title: "Ponder",
+            content: "A Fairytale Story",
+        },
+        {
+            title: "Ponder",
+            content: "A Fairytale Story",
+        },
+        {
+            title: "Ponder",
+            content: "A Fairytale Story",
+        },
+        {
+            title: "Ponder",
+            content: "A Fairytale Story",
+        },
+    ];
+
+    let chapter = 0;
+
+    function Story() {
+        const title = document.getElementById("title");
+        const content = document.getElementById("content");
+        title.textContent = story[chapter].title;
+        content.textContent = story[chapter].content;
+
+        document.getElementById("prev-button").disabled = chapter === 0;
+        document.getElementById("next-button").disabled = chapter === story.length - 1;
+    }
+
+    function next() {
+        if (chapter < story.length - 1) {
+            chapter++;
+            Story();
+        }
+    }
+
+    function prev() {
+        if (chapter > 0) {
+            chapter--;
+            Story();
+        }
     }
     </script>
 

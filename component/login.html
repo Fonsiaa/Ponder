@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/style/story.css">
+</head>
+<body>
+
+    <nav>
+        <div class="ham_nav" onclick="toggleMenu()">
+            <div class="Line"></div>
+            <div class="Line"></div>
+            <div class="Line"></div>
+        </div>
+
+        <div class="title">Ponder</div>
+
+        <ul id="menu">
+            <li><a href="/story.html">Story Time</a></li>
+            <li><a href="/component/login.html">Sign Up</a></li>
+            <li><a href="">Login</a></li>
+        </ul>
+    </nav>
+
+    <!--the login page of the website-->
+    <div class="page">
+        <div class="form-info" id="login">
+            <form id="info">
+                <input type="text" id="user" placeholder="Username" required>
+                <input type="password" id="pass" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>No account yet? <span class="toggle" onclick="Signup">Sign Up</span></p>
+        </div>
+
+        <div class="form-info" id="sign">
+
+        </div>
+    </div>
+
+
+    <script>
+        // function fot toggling the navigation bar
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('open');
+    }
+    </script>
+</body>
+</html>

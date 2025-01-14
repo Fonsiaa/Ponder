@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "KawaiiBubble";
+  src: url(/fonts/KawaiiBubble-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Cali";
+  src: url(/fonts/Dudu_Calligraphy.ttf) format("truetype");
+}
 body {
   background-color: #ffffff;
 }
@@ -10,7 +18,7 @@ nav {
   padding: 1rem;
   transition: all 0.3s ease-in-out;
 }
-.ham_nav {
+nav .ham_nav {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -19,7 +27,7 @@ nav {
   height: 30px;
   transition: all 0.3s ease;
 }
-.ham_nav.open .Line:nth-child(1) {
+nav .ham_nav.open .Line:nth-child(1) {
   transform: rotate(45deg) translate(9px, 5px);
 }
 nav .ham_nav.open .Line:nth-child(2) {
@@ -36,7 +44,7 @@ nav .ham_nav .Line {
 }
 nav .title {
   font-size: 30px;
-  font-family: "KawaiiBubble-Regular";
+  font-family: "KawaiiBubble";
 }
 nav ul {
   position: absolute;
@@ -76,56 +84,29 @@ nav ul li a:hover {
   background: linear-gradient(to bottom, rgb(159, 196, 255), #69aaff);
   padding: 20px 0 20px 0;
   text-align: center;
-  height: 70vh;
+  height: 68vh;
   width: 80vw;
   border-radius: 50px;
   margin-left: 10%;
   overflow-y: scroll;
 }
-.story .cover {
+.story .text {
   color: #ffffff;
   padding: 20px;
 }
-.story .cover h1 {
-  font-family: "KawaiiBubble-Regular";
+.story .text h1 {
+  font-family: "KawaiiBubble";
   font-size: 160px;
   letter-spacing: 14px;
 }
-.story .cover p {
+.story .text p {
   padding: 20px;
-  font-family: "Dudu_Calligraphy";
+  font-family: "Cali";
   font-size: 24px;
   text-align: left;
 }
-.story .cover .sub {
+.story .text .sub {
   text-align: center;
-  padding: 0px;
-}
-.story .ch {
-  padding: 20px;
-  text-align: left;
-  line-height: 1.5;
-}
-.story .ch p {
-  padding: 20px;
-  font-family: "Dudu_Calligraphy";
-  font-size: 24px;
-}
-.story .ch p span {
-  font-size: 50px;
-  font-weight: bolder;
-}
-.story .ch.last {
-  margin-top: 12%;
-  text-align: center;
-}
-.story .ch.last p {
-  font-size: 30px;
-}
-.story .ch img {
-  border: black solid 3px;
-  width: 20%;
-  height: 100%;
 }
 
 .btn {
@@ -136,6 +117,7 @@ nav ul li a:hover {
 }
 .btn button {
   border-radius: 50%;
+  font-family: "Cali";
   font-size: 15px;
   margin: 0 10px;
   padding: 5px 10px;
@@ -147,14 +129,24 @@ nav ul li a:hover {
   color: rgb(255, 255, 255);
 }
 
+.page {
+  background-color: #69aaff;
+  padding: 5%;
+}
+.page .form-info form p {
+  color: antiquewhite;
+}
+
 footer {
   background-color: white;
   color: rgb(10, 36, 90);
-  position: fixed;
+  position: relative;
+  font-family: "Cali";
   height: 5vh;
-  transform: translate(0%, 7vh);
+  transform: translate(0%, 4vh);
   border-radius: 5px;
+  padding: 0;
 }
-footer .content {
+footer p {
   text-align: center;
 }/*# sourceMappingURL=story.css.map */
