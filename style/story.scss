@@ -57,6 +57,11 @@ nav {
   .title {
     font-size: 30px;
     font-family: "KawaiiBubble";
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
   }
 
   ul {
@@ -154,18 +159,197 @@ nav {
   }
 }
 
+//the image animations
+.sky {
+  margin: 5% 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+
+  .image-link {
+    display: inline-block;
+
+    .image,
+    .image1,
+    .image2 {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+      padding: 50px;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .toggle-info {
+    display: none; /* Hide the checkbox */
+  }
+
+  .info {
+    display: none;
+    position: absolute;
+    left: 160px; /* Adjust based on image width */
+    top: 0;
+    z-index: 1;
+    width: 150%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    h3 {
+      font-family: "KawaiiBubble";
+    }
+
+    p {
+      font-family: "Cali";
+    }
+
+    .close-btn {
+      cursor: pointer;
+      color: #d4093a; /* Close button color */
+      font-size: 16px;
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+
+  .toggle-info:checked + .info {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .toggle-info:not(:checked) + .info {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+}
+
 //styling the login and sign up page of the website
+.row {
+  .left {
+    float: left;
+    width: 40%;
+    h2 {
+      display: flex;
+      flex-direction: column;
+      padding: 5px 0 0 20px;
+      font-family: "Cali";
+      font-weight: bolder;
+      font-size: 30px;
+    }
+
+    h4 {
+      padding: 0 0 5px 20px;
+      font-family: "Cali";
+    }
+  }
+
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+    width: 100%;
+  }
+
+  .column {
+    float: right;
+    padding: 30px 50px;
+    background-color: #2b73d7;
+    border-radius: 15px;
+    text-align: center;
+    width: 35%;
+  }
+}
+
+.page {
+  border-radius: 5%;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 70%;
+  box-shadow: 0 0 30px #69aaff;
+
+  .form-info h3 {
+    font-size: 40px;
+    font-family: "KawaiiBubble";
+    color: #ffffff;
+    letter-spacing: 10px;
+    position: relative;
+  }
+
+  .form {
+    display: block;
+    flex-direction: column;
+
+    input {
+      border: none;
+      margin: 5% 0 0 25%;
+      display: block;
+      flex-direction: column;
+      font-size: 16px;
+      background-color: transparent;
+
+      &:focus {
+        color: #000000;
+        font-family: "Cali";
+      }
+
+      &::placeholder {
+        font-family: "Cali";
+        color: white;
+        border-bottom-color: #000000;
+      }
+    }
+
+    button {
+      border: none;
+      font-family: "Cali";
+      color: #2b73d7;
+      padding: 12px;
+      margin: 5% 0 5% 0;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+  }
+
+  p {
+    font-family: "Cali";
+    color: #fff;
+
+    span {
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 
 //styling for the footer
 footer {
-  background-color: white;
   color: rgb(10, 36, 90);
   position: relative;
   font-family: "Cali";
   height: 5vh;
   transform: translate(0%, 4vh);
   border-radius: 5px;
-  padding: 0;
+  padding: 10px 0 0 0;
+  bottom: 0;
 
   p {
     text-align: center;
