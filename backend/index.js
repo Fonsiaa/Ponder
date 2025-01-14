@@ -2,12 +2,12 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import userRoutes from "./routes/userData.js";
+import userRoutes from "./route/userRoute.js";
 
 dotenv.config() 
 
 const app = express();
-const port = process.env.PORT || 5173;
+const port = 2824;
 
 app.use(cors());
 
