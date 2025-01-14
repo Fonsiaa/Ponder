@@ -186,6 +186,10 @@ nav ul li a:hover {
   transform: translateX(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+.container .info:nth-child(3) {
+  background-color: #b7d6ef;
+  left: -280px;
+}
 .container .info h3 {
   font-family: "KawaiiBubble";
 }

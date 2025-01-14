@@ -220,6 +220,11 @@ nav {
     transform: translateX(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 
+    &:nth-child(3) {
+      background-color: #b7d6ef;
+      left: -280px;
+    }
+
     h3 {
       font-family: "KawaiiBubble";
     }
@@ -367,12 +372,4 @@ footer {
   p {
     text-align: center;
   }
-}
-
-//for large mobile
-@media only screen and (max-width: 425px) {
-}
-
-//for tablet
-@media only screen and (max-width: 768px) {
 }
