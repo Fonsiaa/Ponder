@@ -164,6 +164,19 @@ nav {
   margin: 5% 0 0 0;
   display: flex;
   justify-content: center;
+
+  .question {
+    h2 {
+      font-family: "KawaiiBubble";
+      margin-left: 10%;
+      letter-spacing: 5px;
+    }
+
+    p {
+      margin-left: 10%;
+      font-family: "Cali";
+    }
+  }
 }
 
 .container {
@@ -175,11 +188,11 @@ nav {
     .image,
     .image1,
     .image2 {
-      width: 200px;
+      width: 160px;
       height: auto;
       cursor: pointer;
       transition: transform 0.3s;
-      padding: 50px;
+      padding: 40px;
 
       &:hover {
         transform: scale(1.05);
