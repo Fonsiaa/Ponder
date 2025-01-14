@@ -104,11 +104,10 @@ nav {
   background: linear-gradient(to bottom, rgb(159, 196, 255), #69aaff);
   padding: 20px 0 20px 0;
   text-align: center;
-  height: 68vh;
+  height: 65vh;
   width: 80vw;
   border-radius: 50px;
-  margin-left: 10%;
-  overflow-y: scroll; //only scrolling the book up and down
+  margin: 2% 0 0 10%;
 
   .text {
     color: #ffffff;
@@ -156,18 +155,6 @@ nav {
 }
 
 //styling the login and sign up page of the website
-.page {
-  background-color: #69aaff;
-  padding: 5%;
-
-  .form-info {
-    form {
-      p {
-        color: antiquewhite;
-      }
-    }
-  }
-}
 
 //styling for the footer
 footer {

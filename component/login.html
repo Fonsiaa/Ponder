@@ -18,7 +18,7 @@
         <div class="title">Ponder</div>
 
         <ul id="menu">
-            <li><a href="/story.html">Story Time</a></li>
+            <li><a href="/index.html">Story Time</a></li>
             <li><a href="/component/login.html">Sign Up</a></li>
             <li><a href="">Login</a></li>
         </ul>
@@ -26,18 +26,28 @@
 
     <!--the login page of the website-->
     <div class="page">
-        <div class="form-info" id="login">
-            <form id="info">
+        <div class="form-info" id="login-form">
+            <h3>Login</h3>
+            <form id="login">
                 <input type="text" id="user" placeholder="Username" required>
                 <input type="password" id="pass" placeholder="Password" required>
                 <button type="submit">Login</button>
             </form>
-            <p>No account yet? <span class="toggle" onclick="Signup">Sign Up</span></p>
+            <!--if the user does not have an account yet-->
+            <p>No account yet? <span class="toggle" onclick="Signup()">Sign Up</span></p>
         </div>
 
-        <div class="form-info" id="sign">
-
+        <div class="form-info" id="sign-form" style="display: none;">
+            <h3>Sign Up</h3>
+            <form id="sign">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <span class="toggle" onclick="toggleForms()">Login</span></p>
         </div>
+
     </div>
 
 
@@ -47,6 +57,84 @@
         const menu = document.getElementById('menu');
         menu.classList.toggle('open');
     }
+
+    //function for the sign up and login form of the website
+    //sign up function
+    function Signup() {
+        const signForm = document.getElementById('sign-form').style.display = "none";
+        const loginForm = document.getElementById('login-form').style.display = "block";
+    }
+
+    //login function
+    function Login() {
+        const signForm = document.getElementById('sign-form').style.display = "block";
+        const loginForm = document.getElementById('login-form').style.display = "none";
+    }
+
+    //a pop box for when the user has submitted the form
+    function popup(form) {
+        let  isValid = true;
+        const input = form.querySelectorAll('input');//accessing the info from the form
+        const isError = document.getElementById('error');//when there is error while inputting the info
+        let error = '';//the error message
+
+        input.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+                error = `${input.placeholder || input.name} is required.`;
+            }
+
+            if (input.type === 'email' && !/^\S+@\S+\.\S+$/.test(input.value)) {
+            isValid = false;
+            errorMessage = 'Invalid email format.';
+            }
+        
+            if (input.type === 'password' && input.value.length < 5) {
+                isValid = false;
+                errorMessage = 'Password must be 5 characters long.';
+            }
+
+            //when the field is with in valid field
+            if (!isValid) {
+                input.classList.add('error')
+            } else {
+                input.classList.remove('error')
+            }
+        });
+
+        if (!isValid) {
+            if (isError) {
+                isError.textContent = error;
+                isError.style.display = "block";
+            } else {
+                alert(error);
+            }
+        } else if (isError) {
+            isError.style.display = "none";
+        }
+
+        return isValid;
+    }
+
+    document.getElementById("login").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const email = document.getElementById("user").value;
+        const password = document.getElementById("pass").value;
+
+        alert(`Logged in with Username/Email: ${document.getElementById("user").value}`);
+    
+        if (!isValid) {
+            return;
+        }
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        alert("Logged in with User")
+    };
+
     </script>
+
 </body>
 </html>
