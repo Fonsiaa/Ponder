@@ -9,7 +9,7 @@ router.post ('/', async (req, res) => {
         const existUser = await User.findOne({email});
 
         if (existUser) {
-            return res.status(400).json({message: "Email has been used"})
+            return res.status(400).json({message: "Email has been connected before"})
         }
 
         const user = await User.create({ name, email, password });
