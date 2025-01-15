@@ -12,7 +12,7 @@ const story = [
         content: "A Fairytale Story",
     },
     {
-        content: 'Once upon a time high in the misty sky, a place above the ground, is three friends: Wind, Rain and Cloud. They spent their days drifting together, playing games, and the watching the world the below them. Full of beautifully crafted houses, buildings and things. Where people live and use for a purpose. To be sheltered and to be protect. '
+        content: 'Once upon a time high in the misty sky, a place above the ground, is three friends: Wind, Rain and Cloud. They spent their days drifting together, playing games, and watching the world below them. Full of beautifully crafted houses, buildings and things. Where people live and use for a purpose. To be sheltered and to be protected. '
         
     },
     {
@@ -62,3 +62,32 @@ function prev() {
 }
 
 story();
+
+//the dot 
+$(function () {
+    'use strict';
+
+    function DotNav($nav){
+        var $dots = $nav.find('li'),
+            current = 0;
+
+    $dots.click(function (el) {
+        el.preventDefault();
+        var $dot = $(this),
+            idx = $dots.index($dot);
+
+        if( idx !== current ){
+            $dots.removeAttr('class');
+
+            setTimeout( function() {
+            $dot.addClass('is-current');
+            current = idx;
+        }, 25 );
+        }
+    })
+}
+
+    $('.dotstyle').each(function () {
+        new DotNav($(this));
+    });
+});
