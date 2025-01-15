@@ -173,7 +173,7 @@ nav ul li a:hover {
 .container .info {
   display: none;
   position: absolute;
-  left: 160px; /* Adjust based on image width */
+  left: 160px;
   top: 0;
   z-index: 1;
   width: 150%;
@@ -307,6 +307,74 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+.card {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 10%;
+  background-color: #69aaff;
+  border-radius: 25px;
+}
+.card .title {
+  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-family: "KawaiiBubble";
+  letter-spacing: 5px;
+}
+.card .subtitle {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 40px;
+  font-family: "Cali";
+}
+.card .activities {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card .activities .activity {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  flex: 1;
+  max-width: 300px;
+  text-align: center;
+}
+.card .activities .activity img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+.card .activities .activity h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-family: "KawaiiBubble";
+}
+.card .activities .activity p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: "Cali";
+}
+.card .activities .activity a {
+  color: #5ed3de;
+  text-decoration: none;
+  font-weight: bold;
+}
+.card .activities .activity a i {
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .activities {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 footer {
   color: rgb(10, 36, 90);
   position: relative;
@@ -319,4 +387,33 @@ footer {
 }
 footer p {
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    gap: 38%;
+  }
+  nav .title {
+    font-size: 25px;
+  }
+  .story .text h1 {
+    font-size: 100px;
+  }
+  .story .text p {
+    padding-top: 0;
+  }
+  .sky {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10%;
+  }
+  .container .info {
+    width: 110%;
+    left: 10%;
+  }
+  .activities {
+    flex-direction: column;
+    align-items: center;
+  }
 }/*# sourceMappingURL=story.css.map */
