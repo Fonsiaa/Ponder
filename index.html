@@ -9,6 +9,7 @@
 </head>
 <body>
     
+    <!--The navigation bar-->
     <nav>
         <div class="ham_nav" onclick="toggleMenu()">
             <div class="Line"></div>
@@ -16,8 +17,10 @@
             <div class="Line"></div>
         </div>
 
+        <!--the title of the header-->
         <div class="title">Story Time</div>
 
+        <!--linking to other pages-->
         <ul id="menu">
             <li><a>Story Time</a></li>
             <li><a href="/component/login.html">Sign Up</a></li>
@@ -25,6 +28,7 @@
         </ul>
     </nav>
 
+    <!--the story -->
     <div class="story">
         <div class="text" id="story-content">
             <h1 id="title">Ponder</h1>
@@ -32,23 +36,28 @@
         </div>
     </div>
 
+    <!--the button to show the next content of the story-->
     <div class="btn">
         <button id="prev-button" onclick="prev()">&lt;</button>
         <button id="next-button" onclick="next()">&gt;</button>
     </div>
 
+    <!--the question and instruction-->
     <div class="sky">
         <div class="question">
-            <h2>What to know something?</h2>
+            <h2>Want to know something?</h2>
             <p>Click on them, to learn something</p>
         </div>
         
+        <!--the image the their information-->
         <div class="container">
+            <!--the image -->
             <label for="toggle-info-1" class="image-link">
                 <img src="/img/2.webp" alt="The Wind" class="image">
             </label>
             <input type="checkbox" id="toggle-info-1" class="toggle-info">
-        
+            
+            <!--the information-->
             <div class="info">
                 <h3>Wind - Did you know</h3>
                 <p>Wind is the movement of air near Earth’s surface. It can be a gentle breeze or a strong gale. Changes in temperature cause wind. When air flows over a warm surface, it heats up and rises.</p>
@@ -83,6 +92,7 @@
         </div>
     </div>
 
+    <!--the suggestion box of the story-->
     <div class="card">
         <h1 class="title">Other Stories</h1>
         <p class="subtitle">Explore and learn other elements!</p>
@@ -111,6 +121,7 @@
         </div>
     </div>
 
+    <!--the footer of the page-->
     <footer>
         <p>&copy; 2025 Fonsiaa</p>
     </footer>

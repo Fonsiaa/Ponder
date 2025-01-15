@@ -29,7 +29,7 @@
     <div class="page row">
         <div class="left">
             <h2>Enjoying the story?</h2>
-            <h3>Sign Up to get more in the futue!</h3>
+            <h3>Sign Up to get more in the future!</h3>
         </div>
         
         <div class="form-info column" id="login-form">
@@ -38,7 +38,7 @@
                 <input type="text" id="user" placeholder="Email" required>
                 <input type="password" id="pass" placeholder="Password" required>
                 <button type="submit">Login</button>
-                <div id="error" style="display: none;">Please fill in all the fields.</div>
+                <div id="login-error" style="display: none;">Please fill in all the fields.</div>
             </form>
 
             <!--if the user does not have an account yet-->
@@ -52,21 +52,21 @@
                 <input type="email" id="email" placeholder="Email" required>
                 <input type="password" id="password" placeholder="Password" required>
                 <button type="submit">Sign Up</button>
-                <div id="error" style="display: none;">Please fill in all the fields.</div>
+                <div id="signup-error" style="display: none;">Please fill in all the fields.</div>
             </form>
             <p>Already have an account? <span class="toggle" onclick="Login()">Login</span></p>
         </div>
     </div>
 
     <script>
-    // function fot toggling the navigation bar
+    // function for toggling the navigation bar
     function toggleMenu() {
         const menu = document.getElementById('menu');
         menu.classList.toggle('open');
     }
 
-    //function for the sign up and login form of the website
-    //switching between login and sign up
+    // function for the sign up and login form of the website
+    // switching between login and sign up
     function Signup() {
         document.getElementById('login-form').style.display = 'none';
         document.getElementById('sign-form').style.display = 'block';
@@ -77,12 +77,14 @@
         document.getElementById('sign-form').style.display = 'none';
     }
 
-    //login functionality
+    // login functionality
     document.getElementById('login').addEventListener("submit", async function (e) {
         e.preventDefault();
         const email = document.getElementById("user").value.trim();
         const password = document.getElementById("pass").value.trim();
-        const error = document.getElementById("error");
+        const error = document.getElementById("login-error");
+
+        error.style.display = "none"; // Clear previous error message
 
         if (!email || !password) {
             error.textContent = "Please fill in all fields";
@@ -95,30 +97,32 @@
                 method: 'POST',
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify({email, password}),
-        });
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (response.ok) {
-            alert(`Long time, ${data.user.name}!`);
-            error.style.display = "none";
-            localStorage.setItem('user', JSON.stringify(data.user));
-        } else {
-            error.textContent = data.message || 'Invalid email or password.';
-            error.style.display = "block";
+            if (response.ok) {
+                alert(`Long time, ${data.user.name}!`);
+                localStorage.setItem('user', JSON.stringify(data.user.name));
+            } else {
+                error.textContent = data.message || 'Invalid email or password.';
+                error.style.display = "block";
             }
-    } catch (error) {
-        error.textContent = "404 Error found, please try again.";
-        error.style.display = "block";
-    }
-});
+        } catch (error) {
+            error.textContent = "404 Error found, please try again.";
+            error.style.display = "block";
+        }
+    });
 
-    //sign up functionality
+    // sign up functionality
     document.getElementById('sign').addEventListener("submit", async function (e) {
         e.preventDefault();
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
+        const error = document.getElementById("signup-error");
+
+        error.style.display = "none"; // Clear previous error message
 
         if (!popup(this)) return;
 
@@ -133,24 +137,23 @@
 
             if (response.ok) {
                 alert(`Sign Up was successful`);
-                document.getElementById("error").style.display = "none";
                 document.getElementById("sign-form").classList.add("hidden");
                 document.getElementById("login-form").classList.remove("hidden");
             } else {
-                document.getElementById("error").textContent = data.message || 'Sign Up went wrong!.';
-                document.getElementById("error").style.display = "block";
+                error.textContent = data.message || 'Sign Up went wrong!.';
+                error.style.display = "block";
             }
-    } catch (error) {
-        document.getElementById("error").textContent = "404 Error found, please try again.";
-        document.getElementById("error").style.display = "block";
-    }
-});
+        } catch (error) {
+            error.textContent = "404 Error found, please try again.";
+            error.style.display = "block";
+        }
+    });
 
-    //a pop up function
+    // a pop up function
     function popup(form) {
         let isValid = true;
         const input = form.querySelectorAll("input");
-        const error = document.getElementById("error");
+        const error = document.getElementById(form.id === 'login' ? "login-error" : "signup-error");
         let errorMessage = "";
 
         input.forEach(input => {
@@ -160,13 +163,13 @@
             }
 
             if (input.type === 'email' && !/^\S+@\S+\.\S+$/.test(input.value)) {
-            isValid = false;
-            errorMessage = 'Invalid email format.';
+                isValid = false;
+                errorMessage = 'Invalid email format.';
             }
 
             if (input.type === 'password' && input.value.length < 5) {
-            isValid = false;
-            errorMessage = 'Password must be 5 characters long.';
+                isValid = false;
+                errorMessage = 'Password must be 5 characters long.';
             }
         });
 
