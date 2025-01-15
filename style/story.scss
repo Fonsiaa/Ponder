@@ -474,8 +474,11 @@ footer {
 
   .container {
     .info {
-      width: 110%;
-      left: 10%;
+      width: 80%;
+
+      &:nth-child(3) {
+        left: 60px;
+      }
     }
   }
 

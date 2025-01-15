@@ -401,8 +401,10 @@ footer p {
     margin-top: 10%;
   }
   .container .info {
-    width: 110%;
-    left: 10%;
+    width: 80%;
+  }
+  .container .info:nth-child(3) {
+    left: 60px;
   }
   .activities {
     flex-direction: column;
