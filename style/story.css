@@ -361,12 +361,10 @@ nav ul li a:hover {
   font-family: "Cali";
 }
 .card .activities .activity a {
-  color: #5ed3de;
+  color: #5396e3;
   text-decoration: none;
   font-weight: bold;
-}
-.card .activities .activity a i {
-  margin-left: 5px;
+  font-family: "Cali";
 }
 
 @media (max-width: 768px) {
