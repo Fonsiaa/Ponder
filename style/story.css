@@ -225,9 +225,9 @@ nav ul li a:hover {
   padding: 5px 0 0 20px;
   font-family: "Cali";
   font-weight: bolder;
-  font-size: 30px;
+  font-size: 35px;
 }
-.row .left h4 {
+.row .left h3 {
   padding: 0 0 5px 20px;
   font-family: "Cali";
 }
@@ -247,9 +247,9 @@ nav ul li a:hover {
 }
 
 .page {
-  border-radius: 5%;
+  border-radius: 20px;
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 15%;
   width: 70%;
   box-shadow: 0 0 30px #69aaff;
